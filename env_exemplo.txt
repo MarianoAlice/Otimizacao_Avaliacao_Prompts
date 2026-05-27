@@ -1,0 +1,4 @@
+TZ="America/Sao_Paulo"
+ambiente="local"
+LANGCHAIN_API_KEY="lsv2_pt..."
+PROMPT_DIR="prompts"

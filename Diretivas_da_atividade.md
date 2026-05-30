@@ -32,8 +32,8 @@ Após refatorar os prompts, você deve enviá-los de volta ao LangSmith Prompt H
 Tarefas:
 
 Implementar o script src/push_prompts.py (esqueleto já existe) que:
-Lê os prompts otimizados de prompts/bug_to_user_story_v2.yml
-Faz push para o LangSmith com nomes versionados: {seu_username}/bug_to_user_story_v2
-Adiciona metadados (tags, descrição, técnicas utilizadas)
+Ler os prompts otimizados de prompts/bug_to_user_story_v2.yml
+Fazer push para o LangSmith com nomes versionados: {seu_username}/bug_to_user_story_v2
+Adicionar metadados (tags, descrição, técnicas utilizadas)
 Executar o script e verificar no dashboard do LangSmith se os prompts foram publicados
 Deixá-lo público

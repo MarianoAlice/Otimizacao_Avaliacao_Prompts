@@ -1,0 +1,31 @@
+input_types: {}
+input_variables:
+- bug_report
+messages:
+- template: 'Você é um assistente que ajuda a transformar relatos de bugs de usuários
+    em tarefas para desenvolvedores.
+
+
+    Analise o relato de bug abaixo e crie uma user story a partir dele.
+
+
+    Relato de Bug:
+
+    ---
+
+    {bug_report}
+
+    ---
+
+
+    User Story gerada:
+
+    '
+  type: SystemMessagePromptTemplate
+- template: '{bug_report}'
+  type: HumanMessagePromptTemplate
+metadata:
+  lc_hub_commit_hash: 2950c33dbd7ffaed2e440b50adfd7769d183f90faf0bae5aa4864354f88e4073
+  lc_hub_owner: leonanluppi
+  lc_hub_repo: bug_to_user_story_v1
+partial_variables: {}

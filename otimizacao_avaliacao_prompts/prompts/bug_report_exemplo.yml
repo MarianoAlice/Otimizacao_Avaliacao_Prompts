@@ -1,0 +1,3 @@
+# Exemplo de bug_report para few-shot e testes
+bug_report_exemplo: |
+  Quando clico no botão 'Enviar' no formulário de contato, nada acontece. Não recebo mensagem de confirmação e o formulário não é enviado, mesmo preenchendo todos os campos corretamente.

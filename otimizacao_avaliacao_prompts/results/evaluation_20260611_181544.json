@@ -1,0 +1,178 @@
+{
+  "timestamp": "20260611_181544",
+  "total_examples": 15,
+  "averages": {
+    "helpfulness": 0.5733333333333334,
+    "correctness": 1.0,
+    "f1_score": 0.463,
+    "clarity": 0.9333333333333335,
+    "precision": 0.5482666666666667
+  },
+  "results": [
+    {
+      "index": 1,
+      "bug_report": "O botão 'Enviar' no formulário de contato não funciona. Ao clicar, nada acontece.",
+      "generated_story": "Como usuário do site, quero que o botão 'Enviar' do formulário de contato funcione corretamente ao ser clicado, para que eu possa enviar minha mensagem e receber uma confirmação de envio.",
+      "expected_story": "Como visitante, quero enviar meu contato clicando no botão 'Enviar', para que minha mensagem seja processada.",
+      "helpfulness": 0.5,
+      "correctness": 1.0,
+      "f1_score": 0.409,
+      "clarity": 0.9,
+      "precision": 0.562
+    },
+    {
+      "index": 2,
+      "bug_report": "O nome do usuário não aparece na página inicial após fazer login.",
+      "generated_story": "Como usuário autenticado, quero ver meu nome exibido na página inicial após fazer login, para ter certeza de que acessei minha conta corretamente.",
+      "expected_story": "Como usuário logado, quero ver meu nome exibido na página inicial, para confirmar que minha sessão está ativa.",
+      "helpfulness": 0.6,
+      "correctness": 1.0,
+      "f1_score": 0.585,
+      "clarity": 1.0,
+      "precision": 0.667
+    },
+    {
+      "index": 3,
+      "bug_report": "O botão de login tem cor vermelha em vez de azul conforme o design aprovado.",
+      "generated_story": "Como usuário do sistema, quero que o botão de login tenha a cor azul de acordo com o design aprovado, para que a interface seja consistente com a identidade visual definida.",
+      "expected_story": "Como designer, quero que o botão de login siga a cor azul do padrão de marca, para manter consistência visual.",
+      "helpfulness": 0.6,
+      "correctness": 1.0,
+      "f1_score": 0.545,
+      "clarity": 0.9,
+      "precision": 0.632
+    },
+    {
+      "index": 4,
+      "bug_report": "O campo 'Email' não avisa que é obrigatório quando tentamos enviar o formulário vazio.",
+      "generated_story": "Como usuário do formulário, quero que o campo 'Email' exiba um aviso de obrigatoriedade ao tentar enviar o formulário vazio, para que eu possa preenchê-lo corretamente e concluir o envio.",
+      "expected_story": "Como usuário, quero receber uma mensagem de erro clara quando não preencer o email, para saber que é campo obrigatório.",
+      "helpfulness": 0.8,
+      "correctness": 1.0,
+      "f1_score": 0.298,
+      "clarity": 1.0,
+      "precision": 0.35
+    },
+    {
+      "index": 5,
+      "bug_report": "O link para 'Política de Privacidade' retorna erro 404.",
+      "generated_story": "Como usuário do site, quero acessar a página de Política de Privacidade ao clicar no link correspondente, para compreender como meus dados pessoais são tratados.",
+      "expected_story": "Como usuário, quero acessar a Política de Privacidade pelo link do rodapé, para ler os termos de uso.",
+      "helpfulness": 0.5,
+      "correctness": 1.0,
+      "f1_score": 0.5,
+      "clarity": 1.0,
+      "precision": 0.588
+    },
+    {
+      "index": 6,
+      "bug_report": "O relatório de vendas demora mais de 5 minutos para gerar quando contém 10 mil registros. Os usuários reclamam que o sistema congela.",
+      "generated_story": "Como gestor de vendas, quero gerar relatórios de vendas com grandes volumes de dados de forma ágil e sem que o sistema trave, para analisar o desempenho de vendas sem interrupções.",
+      "expected_story": "Como gerente de vendas, quero gerar relatórios com 10 mil registros sem travamentos, para analisar dados rapidamente sem frustração.",
+      "helpfulness": 0.5,
+      "correctness": 1.0,
+      "f1_score": 0.524,
+      "clarity": 0.9,
+      "precision": 0.611
+    },
+    {
+      "index": 7,
+      "bug_report": "Ao calcular desconto de 10% em um produto de R$ 99,99, o sistema exibe R$ 89,98 em vez de R$ 89,99.",
+      "generated_story": "Como usuário, quero que o cálculo de descontos aplique as regras de arredondamento corretas, para que os valores finais dos produtos sejam exibidos com precisão.",
+      "expected_story": "Como cliente, quero que o cálculo do desconto seja preciso até a segunda casa decimal, para confiar no valor final a pagar.",
+      "helpfulness": 0.5,
+      "correctness": 1.0,
+      "f1_score": 0.273,
+      "clarity": 0.8,
+      "precision": 0.286
+    },
+    {
+      "index": 8,
+      "bug_report": "Após clicar 'Logout', o usuário é redirecionado para a home, mas ainda consegue acessar páginas protegidas digitando a URL diretamente.",
+      "generated_story": "Como usuário, quero que o sistema bloqueie o acesso a páginas protegidas após eu realizar o logout, para garantir a segurança da minha conta contra acessos não autorizados.",
+      "expected_story": "Como usuário, quero que minha sessão seja totalmente encerrada ao fazer logout, para garantir que ninguém mais acesse minha conta.",
+      "helpfulness": 0.8,
+      "correctness": 1.0,
+      "f1_score": 0.372,
+      "clarity": 0.9,
+      "precision": 0.444
+    },
+    {
+      "index": 9,
+      "bug_report": "O email de confirmação de cadastro não chega na caixa de entrada, nem na pasta de spam.",
+      "generated_story": "Como novo usuário, quero receber o e-mail de confirmação após realizar o meu cadastro, para poder ativar minha conta e acessar o sistema.",
+      "expected_story": "Como novo usuário, quero receber o email de confirmação de cadastro, para ativar minha conta e começar a usar o serviço.",
+      "helpfulness": 0.5,
+      "correctness": 1.0,
+      "f1_score": 0.7,
+      "clarity": 1.0,
+      "precision": 0.737
+    },
+    {
+      "index": 10,
+      "bug_report": "Um usuário com perfil de 'Leitor' consegue deletar documentos, apesar de não ter essa permissão configurada.",
+      "generated_story": "Como usuário com perfil de 'Leitor', quero ser impedido de deletar documentos, para que a segurança e a integridade dos dados sejam mantidas de acordo com as minhas permissões de acesso.",
+      "expected_story": "Como administrador, quero que as permissões de acesso sejam respeitadas para cada perfil, para manter a segurança dos dados.",
+      "helpfulness": 0.8,
+      "correctness": 1.0,
+      "f1_score": 0.5,
+      "clarity": 0.9,
+      "precision": 0.611
+    },
+    {
+      "index": 11,
+      "bug_report": "Ao buscar por 'Relatório', a busca retorna apenas 5 resultados, mas sabemos que existem mais 20 no sistema.",
+      "generated_story": "Como usuário do sistema, quero visualizar todos os resultados correspondentes ao realizar uma busca, para que eu possa acessar todos os registros cadastrados que atendem aos meus critérios de pesquisa.",
+      "expected_story": "Como usuário, quero que a busca retorne todos os resultados relevantes, para encontrar exatamente o que procuro.",
+      "helpfulness": 0.5,
+      "correctness": 1.0,
+      "f1_score": 0.326,
+      "clarity": 0.9,
+      "precision": 0.438
+    },
+    {
+      "index": 12,
+      "bug_report": "O gráfico de evolução mensal não carrega na aba 'Análises', exibindo uma tela em branco.",
+      "generated_story": "Como analista, quero que o gráfico de evolução mensal na aba 'Análises' carregue corretamente, para que eu possa acompanhar o progresso dos dados sem interrupções.",
+      "expected_story": "Como analista, quero visualizar o gráfico de evolução mensal na aba 'Análises', para acompanhar as tendências de desempenho.",
+      "helpfulness": 0.5,
+      "correctness": 1.0,
+      "f1_score": 0.6,
+      "clarity": 1.0,
+      "precision": 0.706
+    },
+    {
+      "index": 13,
+      "bug_report": "Quando o usuário tenta editar um documento, salva, volta para listar, e volta a abrir, a alteração desaparece. Isso acontece aleatoriamente em sequências rápidas de ações.",
+      "generated_story": "Como usuário do sistema, quero que as edições realizadas nos documentos sejam salvas de forma consistente e imediata, para que eu não perca minhas alterações ao navegar rapidamente entre as telas.",
+      "expected_story": "Como editor de conteúdo, quero que minhas edições sejam persistidas corretamente ao salvar um documento, independente da sequência de ações.",
+      "helpfulness": 0.5,
+      "correctness": 1.0,
+      "f1_score": 0.333,
+      "clarity": 0.9,
+      "precision": 0.421
+    },
+    {
+      "index": 14,
+      "bug_report": "O saldo de pontos do usuário aparece como 500 no painel principal, mas 480 na página de detalhes. Os cálculos não batem entre módulos.",
+      "generated_story": "Como usuário, quero que meu saldo de pontos seja exibido de forma consistente e idêntica em todas as telas do sistema, para acompanhar minha pontuação real sem divergências.",
+      "expected_story": "Como cliente fiel, quero ver meu saldo de pontos consistente em todas as seções do app, para gerenciar meus pontos com confiança.",
+      "helpfulness": 0.5,
+      "correctness": 1.0,
+      "f1_score": 0.5,
+      "clarity": 0.9,
+      "precision": 0.571
+    },
+    {
+      "index": 15,
+      "bug_report": "A integração com a API de pagamento falha 3 em cada 10 tentativas, obrigando o usuário a tentar novamente múltiplas vezes até conseguir pagar.",
+      "generated_story": "Como cliente, quero que a integração de pagamento funcione de forma estável e sem falhas intermitentes, para que eu possa concluir minhas compras com sucesso na primeira tentativa sem precisar repetir o processo.",
+      "expected_story": "Como cliente, quero completar meu pagamento na primeira tentativa com a API de pagamento confiável, para finalizar minha compra sem frustração.",
+      "helpfulness": 0.5,
+      "correctness": 1.0,
+      "f1_score": 0.48,
+      "clarity": 1.0,
+      "precision": 0.6
+    }
+  ]
+}

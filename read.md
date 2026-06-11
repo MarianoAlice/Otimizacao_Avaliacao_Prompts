@@ -1,78 +1,147 @@
 # Otimizacao_Avaliacao_Prompts
 
-Este projeto automatiza o download e o salvamento de prompts do LangChain PromptHub em arquivos YAML, facilitando a organização e o versionamento de prompts para aplicações de IA.
+Guia completo para subir e executar o sistema do desafio de otimização e avaliação de prompts, com publicação no LangSmith Hub e avaliações automáticas.
 
-## Funcionalidade
-- Carrega variáveis de ambiente do arquivo `.env` (utilizando `python-dotenv`).
-- Utiliza a chave `LANGCHAIN_API_KEY` para autenticação com o LangChain PromptHub.
-- Baixa todos os prompts disponíveis na sua conta PromptHub.
-- Salva cada prompt como um arquivo YAML no diretório `prompts/`.
+## Escopo do sistema
 
-## Como usar
+O fluxo principal está na pasta `otimizacao_avaliacao_prompts/` e cobre:
 
-1. **Clone o repositório**
+- Pull de prompt base (`bug_to_user_story_v1`) do Hub.
+- Edição/otimização do prompt (`bug_to_user_story_v2.yml`).
+- Push do prompt otimizado para o LangSmith Hub.
+- Avaliação automática com 5 métricas em dataset JSONL.
+- Testes de validação do prompt com `pytest`.
 
-2. **Criar ambiente virtual (recomendado):**
-    ```bash
-   python -m venv .venv
-   .venv\Scripts\activate
-   ```
+## Estrutura relevante
 
-3. **Instale as dependências:**
-   ```bash
-   python -m pip install --upgrade pip
-   pip install langchain python-dotenv pyyaml
-   ```
-
-4. **Configure o arquivo `.env`:**
-   Crie (ou edite) o arquivo `.env` na raiz do projeto e adicione sua chave:
-   ```env
-   LANGCHAIN_API_KEY=coloque_sua_chave_aqui
-   TZ="America/Sao_Paulo"
-   ambiente="local"
-   ```
-
-5. **Execute o script:**
-   ```bash
-   python pull_prompts.py
-   ```
-
-6. **Resultado:**
-   Os prompts serão salvos como arquivos YAML no diretório `prompts/`.
-
-## Estrutura dos arquivos
-- `pull_prompts.py`: Script principal para baixar e salvar os prompts.
-- `prompts/`: Diretório onde os arquivos YAML dos prompts são salvos.
-- `.env`: Arquivo de variáveis de ambiente.
-
-## Observações
-- Certifique-se de que sua chave de API do LangChain está correta.
-- O script irá criar o diretório `prompts/` automaticamente, se não existir.
-
-## Otimização de Prompt: bug_to_user_story_v2
-
-O prompt `bug_to_user_story_v2.yml` foi otimizado utilizando as seguintes técnicas:
-
-- **Few-shot Learning:** Inclui exemplos claros de entrada (relato de bug) e saída (user story gerada), cobrindo casos comuns e edge cases.
-- **Role Prompting:** Define a persona do modelo como um analista de requisitos experiente, especialista em transformar relatos de bugs em user stories acionáveis.
-- **Chain of Thought (CoT):** Instruções explícitas para pensar passo a passo: analisar o relato, identificar comportamentos, extrair contexto e só então gerar a user story.
-- **Regras explícitas:** O prompt detalha o formato da resposta, como tratar relatos vagos, como pedir esclarecimentos e como lidar com casos não reproduzíveis.
-- **Edge cases:** Exemplos e instruções para lidar com relatos incompletos ou pouco claros.
-
-### Exemplo de uso
-
-Entrada (relato de bug):
 ```
-Quando clico no botão 'Enviar' no formulário de contato, nada acontece. Não recebo mensagem de confirmação e o formulário não é enviado, mesmo preenchendo todos os campos corretamente.
+otimizacao_avaliacao_prompts/
+├── .env
+├── .env.example
+├── requirements.txt
+├── prompts/
+│   ├── bug_to_user_story_v1.yml
+│   └── bug_to_user_story_v2.yml
+├── datasets/
+│   └── bug_to_user_story.jsonl
+├── src/
+│   ├── pull_prompts.py
+│   ├── push_prompts.py
+│   ├── evaluate.py
+│   ├── metrics.py
+│   └── utils.py
+└── tests/
+    └── test_prompts.py
 ```
 
-Saída esperada (user story):
+## Pré-requisitos
+
+- Windows PowerShell (comandos abaixo são para Windows).
+- Python 3.11+ (recomendado 3.12+).
+- Conta e chave de API do Gemini e/ou OpenAI.
+- Conta LangSmith com API key.
+
+## Subindo o sistema (passo a passo)
+
+1. Entrar na pasta do projeto:
+
+```powershell
+Set-Location "c:\_node_sites\MBA_Engenharia de Software\Otimizacao_Avaliacao_Prompts\otimizacao_avaliacao_prompts"
 ```
-Como usuário do site, quero que o formulário de contato envie minha mensagem e exiba uma confirmação, para que eu saiba que meu contato foi recebido.
+
+2. Criar e ativar ambiente virtual:
+
+```powershell
+python -m venv .venv
+.venv\Scripts\activate
 ```
 
-Veja o arquivo `prompts/bug_to_user_story_v2.yml` para o prompt completo e exemplos.
+3. Instalar dependências:
 
----
+```powershell
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+pip install python-dotenv pyyaml langchain-google-genai
+```
 
-Qualquer dúvida ou sugestão, fique à vontade para abrir uma issue!
+4. Configurar `.env` (use `.env.example` como base):
+
+```env
+TZ="America/Sao_Paulo"
+ambiente="local"
+PROMPT_DIR="prompts"
+
+OPENAI_API_KEY=""
+GEMINI_API_KEY="SUA_CHAVE_GEMINI"
+
+LANGSMITH_API_KEY="SUA_CHAVE_LANGSMITH"
+LANGCHAIN_USERNAME="seu_handle_langsmith"
+
+LLM_PROVIDER="gemini"
+GEMINI_MODEL="gemini-flash-lite-latest"
+LLM_TEMPERATURE="0"
+```
+
+## Execução operacional
+
+### 1) Validar prompt com testes
+
+```powershell
+python -m pytest tests/test_prompts.py -v
+```
+
+### 2) Pull do prompt base (se necessário)
+
+```powershell
+python src/pull_prompts.py
+```
+
+### 3) Push do prompt otimizado
+
+```powershell
+python src/push_prompts.py
+```
+
+Observação:
+- Se o handle público do Hub ainda não estiver configurado, o script faz fallback para push privado.
+- Para liberar público, crie um prompt público uma vez em `https://smith.langchain.com/prompts`.
+
+### 4) Rodar avaliação automática
+
+```powershell
+python -u src/evaluate.py
+```
+
+Saída:
+- Arquivo JSON em `results/evaluation_YYYYMMDD_HHMMSS.json`.
+- Resumo no console com `helpfulness`, `correctness`, `f1_score`, `clarity`, `precision`.
+
+## Critério de aprovação usado no projeto
+
+- Todas as 5 métricas devem ser `>= 0.9`.
+- Média geral também deve ser `>= 0.9`.
+
+## Troubleshooting rápido
+
+1. Erro de cota/quota (`429 RESOURCE_EXHAUSTED` ou `insufficient_quota`):
+- Verificar billing e cotas do provedor.
+- Trocar modelo (`GEMINI_MODEL`) e manter `LLM_TEMPERATURE=0`.
+
+2. Erro de modelo indisponível (`404 NOT_FOUND`):
+- Atualizar `GEMINI_MODEL` para um modelo válido na conta.
+
+3. Push com erro de handle público:
+- Mensagem comum: `Cannot create a public prompt without first creating a LangChain Hub handle`.
+- Solução: criar handle/prompt público no Hub e repetir o push.
+
+4. Execução inconsistente:
+- Confirmar ambiente virtual ativo.
+- Reinstalar dependências do `requirements.txt`.
+
+## Técnicas de prompt aplicadas
+
+- Few-shot Learning.
+- Role Prompting.
+- Chain of Thought (CoT).
+
+Essas técnicas estão implementadas no arquivo `prompts/bug_to_user_story_v2.yml`.
